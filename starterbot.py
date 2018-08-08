@@ -27,6 +27,10 @@ def parse_bot_commands(slack_events):
             user_id, message = parse_direct_mention(event["text"])
             if user_id == starterbot_id:
                 return message, event["channel"]
+        elif event["type"] == "reaction_added":
+            user_id, message = parse_direct_mention(event["reaction"])
+            if user_id == starterbot_id:
+                return message, event["item"]["channel"]
     return None, None
 
 def parse_direct_mention(message_text):
