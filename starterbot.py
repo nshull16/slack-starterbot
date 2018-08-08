@@ -48,6 +48,10 @@ def handle_command(command, channel):
     # This is where you start to implement more commands!
     if command.startswith(EXAMPLE_COMMAND):
         response = "Sure...write some more code then I can do that! :grootwave:"
+    else if command.startswith("where")
+        response = "Locating... :location:"
+    else if command.startswith("can")
+        response = "I don't know, can you? :thinking_face:"
 
     # Sends the response back to the channel
     slack_client.api_call(
