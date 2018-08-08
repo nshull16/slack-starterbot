@@ -11,9 +11,9 @@ starterbot_id = None
 
 # constants
 RTM_READ_DELAY = 1 # 1 second delay between reading from RTM
-EXAMPLE_COMMAND = "do"
-WHERE = "where"
-CAN = "can"
+EXAMPLE_COMMAND = "Do"
+WHERE = "Where"
+CAN = "Can"
 MENTION_REGEX = "^<@(|[WU].+?)>(.*)"
 
 def parse_bot_commands(slack_events):
@@ -48,11 +48,11 @@ def handle_command(command, channel):
     # Finds and executes the given command, filling in response
     response = None
     # This is where you start to implement more commands!
-    if command.startswith(EXAMPLE_COMMAND.lower()):
+    if command.startswith(EXAMPLE_COMMAND or EXAMPLE_COMMAND.lower() or EXAMPLE_COMMAND.upper()):
         response = "Sure...write some more code then I can do that! :grootwave:"
-    elif command.startswith(WHERE.lower()):
+    elif command.startswith(WHERE or WHERE.lower() or WHERE.upper()):
         response = "Locating... :location:"
-    elif command.startswith(CAN.lower()):
+    elif command.startswith(CAN or CAN.lower() or CAN.upper()):
         response = "I don't know, can you? :thinking_face:"
 
     # Sends the response back to the channel
